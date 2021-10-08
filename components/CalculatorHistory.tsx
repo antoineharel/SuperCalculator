@@ -23,7 +23,9 @@ export const CalculatorHistory: FC<CalculatorHistoryProps> = ({ entries }) => {
                     {(entries.length > 0 && (
                         <ul className="list-disc list-inside">
                             {entries.map((entry, i) => (
-                                <li className="dark:text-gray-200">{entry}</li>
+                                <li key={`${entry}-${i}`} className="dark:text-gray-200">
+                                    {entry}
+                                </li>
                             ))}
                         </ul>
                     )) || (
