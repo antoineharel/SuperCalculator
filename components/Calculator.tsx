@@ -102,9 +102,7 @@ export const Calculator: FC<CalculatorProps> = () => {
         })();
 
         setStoredValue(result);
-
         setHistory([`${storedValue} ${operators[currentOperator]} ${inputValue} = ${result}`, ...history]);
-
         setShowStoredValue(true);
     }, [inputValue, storedValue, currentOperator, history]);
 
@@ -115,6 +113,7 @@ export const Calculator: FC<CalculatorProps> = () => {
             } else {
                 handleCompute();
             }
+
             setInputValue("0");
             setCurrentOperator(operator);
             setShowStoredValue(true);
