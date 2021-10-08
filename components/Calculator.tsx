@@ -54,20 +54,6 @@ export const Calculator: FC<CalculatorProps> = () => {
         [inputValue, storedValue, showStoredValue]
     );
 
-    const handleOperator = useCallback(
-        (operator: Operator) => {
-            if (storedValue === null) {
-                setStoredValue(inputValue);
-            } else {
-                handleCompute();
-            }
-            setInputValue("0");
-            setCurrentOperator(operator);
-            setShowStoredValue(true);
-        },
-        [currentOperator, inputValue, history, storedValue]
-    );
-
     const handleAllClear = useCallback(() => {
         setInputValue("0");
         setStoredValue(null);
@@ -122,6 +108,20 @@ export const Calculator: FC<CalculatorProps> = () => {
         setShowStoredValue(true);
     }, [inputValue, storedValue, currentOperator, history]);
 
+    const handleOperator = useCallback(
+        (operator: Operator) => {
+            if (storedValue === null) {
+                setStoredValue(inputValue);
+            } else {
+                handleCompute();
+            }
+            setInputValue("0");
+            setCurrentOperator(operator);
+            setShowStoredValue(true);
+        },
+        [inputValue, storedValue, handleCompute]
+    );
+
     useKey("%", handlePercent);
     useKey("c", handleAllClear);
     useKey([",", "."], handleComa);
@@ -148,7 +148,7 @@ export const Calculator: FC<CalculatorProps> = () => {
                     <CalculatorButton color="lightIndigo" onClick={handlePercent}>
                         %
                     </CalculatorButton>
-                    <CalculatorButton onClick={() => handleOperator("divide")} active={currentOperator === "divide"} color="indigo">
+                    <CalculatorButton color="indigo" active={currentOperator === "divide"} onClick={() => handleOperator("divide")}>
                         ÷
                     </CalculatorButton>
 
@@ -162,18 +162,18 @@ export const Calculator: FC<CalculatorProps> = () => {
                     <CalculatorButton onClick={() => handleNumber(4)}>4</CalculatorButton>
                     <CalculatorButton onClick={() => handleNumber(5)}>5</CalculatorButton>
                     <CalculatorButton onClick={() => handleNumber(6)}>6</CalculatorButton>
-                    <CalculatorButton onClick={() => handleOperator("minus")} active={currentOperator === "minus"} color="indigo">
+                    <CalculatorButton color="indigo" active={currentOperator === "minus"} onClick={() => handleOperator("minus")}>
                         –
                     </CalculatorButton>
 
                     <CalculatorButton onClick={() => handleNumber(1)}>1</CalculatorButton>
                     <CalculatorButton onClick={() => handleNumber(2)}>2</CalculatorButton>
                     <CalculatorButton onClick={() => handleNumber(3)}>3</CalculatorButton>
-                    <CalculatorButton onClick={() => handleOperator("plus")} active={currentOperator === "plus"} color="indigo">
+                    <CalculatorButton color="indigo" active={currentOperator === "plus"} onClick={() => handleOperator("plus")}>
                         +
                     </CalculatorButton>
 
-                    <CalculatorButton onClick={() => handleNumber(0)} className="col-span-2">
+                    <CalculatorButton className="col-span-2" onClick={() => handleNumber(0)}>
                         0
                     </CalculatorButton>
                     <CalculatorButton onClick={handleComa}>,</CalculatorButton>
