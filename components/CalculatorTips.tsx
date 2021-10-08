@@ -23,15 +23,15 @@ export const CalculatorTips: FC<CalculatorTipsProps> = () => {
                     </p>
                     <p>Vous pouvez utiliser votre clavier pour taper des chiffres ou des opérateurs ! ⌨️</p>
                     <p>
-                        La touche <span className="code">A</span> vous permet d'afficher/masquer ce panneau d'aide et de conseils.
+                        La touche <span className="code">A</span> vous permet d&apos;afficher/masquer ce panneau d&apos;aide et de conseils.
                     </p>
                     <p>
-                        La touche <span className="code">H</span> vous permet d'afficher/masquer le panneau listant les opérations passées.
+                        La touche <span className="code">H</span> vous permet d&apos;afficher/masquer le panneau listant les opérations passées.
                     </p>
                     <p>
-                        La touche <span className="code">C</span> vous permet d'effacer le contenu de la calculatrice.
+                        La touche <span className="code">C</span> vous permet d&apos;effacer le contenu de la calculatrice.
                     </p>
-                    <p>Un mode sombre de l'application est disponible et s'active automatiquement avec le mode sombre du système ! 🌙</p>
+                    <p>Un mode sombre de l&apos;application est disponible et s&apos;active automatiquement avec le mode sombre du système ! 🌙</p>
                 </div>
             </div>
         );
